@@ -1,7 +1,8 @@
 package Admin;
 
+import lab4.Record;
 
-public class Trainer {
+public class Trainer implements Record {
     private String trainerId, name, email, speciality, phoneNumber;
 
     // constructor
@@ -14,13 +15,13 @@ public class Trainer {
     }
     
     // methods
+    @Override
     public String lineRepresentation () {
         return String.format("%s,%s,%s,%s,%s", trainerId, name, email, speciality, phoneNumber);
     }
 
+    @Override
     public String getSearchKey () {
         return trainerId;
     }
-    
-    
 }

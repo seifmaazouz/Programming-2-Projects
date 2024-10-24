@@ -1,13 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Member;
 
-/**
- *
- * @author ADMIN
- */
-public class ClassDatabase {
+import lab4.Database;
+
+
+public class ClassDatabase extends Database<Class> {
+
+    public ClassDatabase(String filename) {
+        super(filename);
+    }
     
+    // helper method so protected
+    @Override
+    protected Class createRecordFrom(String line) {
+        String[] data = line.split(",");
+        return new Class(data[0], data[1], data[2], Integer.parseInt(data[3]), Integer.parseInt(data[4]));
+    }
 }
