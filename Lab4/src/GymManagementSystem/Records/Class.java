@@ -1,6 +1,5 @@
-package Member;
+package GymManagementSystem.Records;
 
-import lab4.Record;
 
 public class Class implements Record {
     private String classID, className, trainerID;

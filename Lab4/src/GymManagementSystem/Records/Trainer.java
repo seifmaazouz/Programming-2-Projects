@@ -1,6 +1,5 @@
-package Admin;
+package GymManagementSystem.Records;
 
-import lab4.Record;
 
 public class Trainer implements Record {
     private String trainerId, name, email, speciality, phoneNumber;

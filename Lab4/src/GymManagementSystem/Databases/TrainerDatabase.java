@@ -1,6 +1,6 @@
-package Admin;
+package GymManagementSystem.Databases;
 
-import lab4.Database;
+import GymManagementSystem.Records.Trainer;
 
 
 public class TrainerDatabase extends Database<Trainer> {

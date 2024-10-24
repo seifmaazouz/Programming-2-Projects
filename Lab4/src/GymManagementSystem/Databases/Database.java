@@ -1,5 +1,6 @@
-package lab4;
+package GymManagementSystem.Databases;
 
+import GymManagementSystem.Records.Record;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;

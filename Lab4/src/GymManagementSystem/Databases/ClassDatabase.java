@@ -1,6 +1,6 @@
-package Member;
+package GymManagementSystem.Databases;
 
-import lab4.Database;
+import GymManagementSystem.Records.Class;
 
 
 public class ClassDatabase extends Database<Class> {

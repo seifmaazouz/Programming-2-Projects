@@ -1,4 +1,4 @@
-package lab4;
+package GymManagementSystem.Records;
 
 
 public interface Record {

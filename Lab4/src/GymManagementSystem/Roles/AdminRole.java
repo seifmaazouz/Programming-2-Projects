@@ -1,5 +1,7 @@
-package Admin;
+package GymManagementSystem.Roles;
 
+import GymManagementSystem.Records.Trainer;
+import GymManagementSystem.Databases.TrainerDatabase;
 import java.util.List;
 
 

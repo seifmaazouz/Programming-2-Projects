@@ -1,10 +1,10 @@
-package lab4;
+package GymManagementSystem;
 
-import Admin.AdminRole;
-import Admin.Trainer;
+import GymManagementSystem.Roles.*;
+import GymManagementSystem.Records.*;
 import java.util.List;
 
-public class Lab4 {
+public class GymManagementSystem {
 
 
     public static void main(String[] args) {
