@@ -1,13 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package GymManagementSystem.Databases;
 
-/**
- *
- * @author ADMIN
- */
-public class MemberClassRegistrationDatabase {
-    
+import GymManagementSystem.Records.MemberClassRegistration;
+import java.time.LocalDate;
+
+public class MemberClassRegistrationDatabase extends Database<MemberClassRegistration> {
+
+    //constructor
+    public MemberClassRegistrationDatabase(String filename) {
+        super(filename);
+    }
+
+    //methods
+    @Override
+    protected MemberClassRegistration createRecordFrom(String line) {
+        String[] data = line.split(",");
+        return new MemberClassRegistration(data[0], data[1], LocalDate.parse(data[2]), data[3]);
+    }
 }
