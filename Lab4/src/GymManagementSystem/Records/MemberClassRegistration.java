@@ -11,8 +11,8 @@ public class MemberClassRegistration implements Record {
     public MemberClassRegistration(String memberID, String classID, LocalDate registrationDate, String status) {
         this.memberID = memberID;
         this.classID = classID;
-        this.status = status;
         this.registrationDate = registrationDate;
+        this.status = status;
     }
 
     //methods
@@ -26,6 +26,10 @@ public class MemberClassRegistration implements Record {
 
     public LocalDate getRegistrationDate() {
         return registrationDate;
+    }
+
+    public void setRegistrationStatus(String status) {
+        this.status = status;
     }
 
     @Override
