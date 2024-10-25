@@ -17,7 +17,7 @@ public class Member implements Record {
     //methods
     @Override
     public String lineRepresentation() {
-        return String.format("%s,%s,%s,%s,%s, %s", memberID, name, membershipType, email, phoneNumber, status);
+        return String.format("%s,%s,%s,%s,%s,%s", memberID, name, membershipType, email, phoneNumber, status);
     }
 
     @Override
