@@ -1,2 +1,0 @@
-T1001,John,john@gmail.com,Yoga,0123456789
-F2002,Tom,tom@gmail.com,Yoga,0123482789

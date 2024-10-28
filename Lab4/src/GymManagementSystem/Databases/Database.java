@@ -20,6 +20,7 @@ public abstract class Database<Type extends Record> {
     }
     
     public void readFromFile() {
+        records.clear();
         File file = new File(filename + ".txt");
         // check if file exists
         if(!file.exists()) {

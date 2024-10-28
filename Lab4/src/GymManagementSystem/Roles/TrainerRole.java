@@ -56,6 +56,10 @@ public class TrainerRole {
     public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
         Class Class = classDatabase.getRecord(classID);
         if (Class != null) {
+            MemberClassRegistration registration = registrationDatabase.getRecord(memberID + classID);
+            if (registration != null || !memberDatabase.contains(memberID)) {
+                return false;
+            }
             int availableSeats = Class.getAvailableSeats();
             if (availableSeats > 0) {
                 MemberClassRegistration record = new MemberClassRegistration(memberID, classID, registrationDate, "active");
@@ -76,9 +80,11 @@ public class TrainerRole {
         if (registration != null) {
             LocalDate oldDate = registration.getRegistrationDate();
             LocalDate currentDate = LocalDate.now();
-            if (ChronoUnit.DAYS.between(oldDate, currentDate) <= 3) {
-                System.out.println("Refunded.");
+            if (oldDate.until(currentDate).getDays() > 3) {
+                System.out.println("Passed more than 3 days.");
+                return false;
             }
+            System.out.println("Refunded.");
             registration.setRegistrationStatus("canceled");
             Class Class = classDatabase.getRecord(classID);
             int availableSeats = Class.getAvailableSeats();
