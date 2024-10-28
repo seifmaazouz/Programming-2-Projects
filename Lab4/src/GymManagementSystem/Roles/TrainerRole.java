@@ -56,8 +56,7 @@ public class TrainerRole {
     public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
         Class Class = classDatabase.getRecord(classID);
         if (Class != null) {
-            MemberClassRegistration registration = registrationDatabase.getRecord(memberID + classID);
-            if (registration != null || !memberDatabase.contains(memberID)) {
+            if (!memberDatabase.contains(memberID) || registrationDatabase.contains(memberID + classID)) {
                 return false;
             }
             int availableSeats = Class.getAvailableSeats();
