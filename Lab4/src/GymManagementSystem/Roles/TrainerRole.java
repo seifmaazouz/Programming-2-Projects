@@ -39,10 +39,10 @@ public class TrainerRole {
 
     public List<Member> getListOfMembers() {
         List<Record> records = memberDatabase.returnAllRecords();
-        List<Member> trainers = new ArrayList<>();
+        List<Member> members = new ArrayList<>();
         for(Record record : records)
-            trainers.add((Member)record);
-        return trainers;
+            members.add((Member)record);
+        return members;
     }
 
     public void addClass(String classID, String className, String trainerID, int duration, int maxParticipants) {
