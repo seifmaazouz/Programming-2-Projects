@@ -3,7 +3,7 @@ package GymManagementSystem.Databases;
 import GymManagementSystem.Records.Class;
 
 
-public class ClassDatabase extends Database<Class> {
+public class ClassDatabase extends Database {
 
     public ClassDatabase(String filename) {
         super(filename);

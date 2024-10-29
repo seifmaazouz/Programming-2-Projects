@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public abstract class Database<Type extends Record> {
-    private final List<Type> records;
+public abstract class Database {
+    private final List<Record> records;
     private final String filename;
 
     public Database(String filename) {
@@ -47,34 +47,34 @@ public abstract class Database<Type extends Record> {
         }
     }
     // helper method
-    protected abstract Type createRecordFrom(String line);
+    protected abstract Record createRecordFrom(String line);
     
-    public List<Type> returnAllRecords() {
+    public List<Record> returnAllRecords() {
         return records;
     }
     
     public boolean contains(String key) {
-        for(Type record : records) {
+        for(Record record : records) {
             if(record.getSearchKey().equals(key))
                 return true;
         }
         return false;
     }
     
-    public Type getRecord(String key) {
-        for(Type record : records) {
+    public Record getRecord(String key) {
+        for(Record record : records) {
             if(record.getSearchKey().equals(key))
                 return record;
         }
         return null;
     }
     
-    public void insertRecord(Type record) {
+    public void insertRecord(Record record) {
         records.add(record);
     }
     
     public void deleteRecord(String key) {
-        Type record = getRecord(key);
+        Record record = getRecord(key);
         if(record != null) {
             records.remove(record);
             System.out.println("Record Successfully deleted.");
@@ -98,7 +98,7 @@ public abstract class Database<Type extends Record> {
         try {
             FileWriter fwrite = new FileWriter(file);
             fwrite.write(""); // clear file
-            for(Type record : records) {
+            for(Record record : records) {
                 fwrite.append(record.lineRepresentation() + "\n");
             }
             fwrite.close();

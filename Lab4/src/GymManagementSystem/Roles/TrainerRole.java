@@ -7,7 +7,6 @@ import GymManagementSystem.Databases.MemberClassRegistrationDatabase;
 import GymManagementSystem.Records.Member;
 import GymManagementSystem.Databases.MemberDatabase;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class TrainerRole {
@@ -37,7 +36,7 @@ public class TrainerRole {
     }
 
     public List<Member> getListOfMembers() {
-        return memberDatabase.returnAllRecords();
+        return (List<Member>)(List<?>)memberDatabase.returnAllRecords();
     }
 
     public void addClass(String classID, String className, String trainerID, int duration, int maxParticipants) {
@@ -50,11 +49,11 @@ public class TrainerRole {
     }
 
     public List<Class> getListOfClasses() {
-        return classDatabase.returnAllRecords();
+        return (List<Class>)(List<?>)classDatabase.returnAllRecords();
     }
 
     public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
-        Class Class = classDatabase.getRecord(classID);
+        Class Class = (Class)classDatabase.getRecord(classID);
         if (Class != null) {
             if (!memberDatabase.contains(memberID) || registrationDatabase.contains(memberID + classID)) {
                 return false;
@@ -75,7 +74,7 @@ public class TrainerRole {
     }
 
     public boolean cancelRegistration(String memberID, String classID) {
-        MemberClassRegistration registration = registrationDatabase.getRecord(memberID + classID);
+        MemberClassRegistration registration = (MemberClassRegistration)registrationDatabase.getRecord(memberID + classID);
         if (registration != null) {
             LocalDate oldDate = registration.getRegistrationDate();
             LocalDate currentDate = LocalDate.now();
@@ -85,7 +84,7 @@ public class TrainerRole {
             }
             System.out.println("Refunded.");
             registration.setRegistrationStatus("canceled");
-            Class Class = classDatabase.getRecord(classID);
+            Class Class = (Class)classDatabase.getRecord(classID);
             int availableSeats = Class.getAvailableSeats();
             Class.setAvailableSeats(availableSeats + 1);
             return true;
@@ -96,7 +95,7 @@ public class TrainerRole {
     }
 
     public List<MemberClassRegistration> getListOfRegistrations() {
-        return registrationDatabase.returnAllRecords();
+        return (List<MemberClassRegistration>)(List<?>)registrationDatabase.returnAllRecords();
     }
 
     public void logout() {

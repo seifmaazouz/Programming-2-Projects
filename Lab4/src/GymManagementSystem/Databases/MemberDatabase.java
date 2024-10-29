@@ -2,7 +2,7 @@ package GymManagementSystem.Databases;
 
 import GymManagementSystem.Records.Member;
 
-public class MemberDatabase extends Database<Member> {
+public class MemberDatabase extends Database {
 
     //constructor
     public MemberDatabase(String filename) {

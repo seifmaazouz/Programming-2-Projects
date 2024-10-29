@@ -24,7 +24,7 @@ public class AdminRole {
     }
     
     public List<Trainer> getListOfTrainers() {
-        return database.returnAllRecords();
+        return (List<Trainer>)(List<?>)database.returnAllRecords();
     }
     
     public void removeTrainer(String key) {

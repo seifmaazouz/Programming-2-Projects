@@ -3,7 +3,7 @@ package GymManagementSystem.Databases;
 import GymManagementSystem.Records.MemberClassRegistration;
 import java.time.LocalDate;
 
-public class MemberClassRegistrationDatabase extends Database<MemberClassRegistration> {
+public class MemberClassRegistrationDatabase extends Database {
 
     //constructor
     public MemberClassRegistrationDatabase(String filename) {
