@@ -1,7 +1,9 @@
 package GymManagementSystem.Roles;
 
 import GymManagementSystem.Records.Trainer;
+import GymManagementSystem.Records.Record;
 import GymManagementSystem.Databases.TrainerDatabase;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,7 +26,11 @@ public class AdminRole {
     }
     
     public List<Trainer> getListOfTrainers() {
-        return (List<Trainer>)(List<?>)database.returnAllRecords();
+        List<Record> records = database.returnAllRecords();
+        List<Trainer> trainers = new ArrayList<>();
+        for(Record record : records)
+            trainers.add((Trainer)record);
+        return trainers;
     }
     
     public void removeTrainer(String key) {

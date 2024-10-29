@@ -1,5 +1,6 @@
 package GymManagementSystem.Roles;
 
+import GymManagementSystem.Records.Record;
 import GymManagementSystem.Records.Class;
 import GymManagementSystem.Databases.ClassDatabase;
 import GymManagementSystem.Records.MemberClassRegistration;
@@ -7,6 +8,7 @@ import GymManagementSystem.Databases.MemberClassRegistrationDatabase;
 import GymManagementSystem.Records.Member;
 import GymManagementSystem.Databases.MemberDatabase;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TrainerRole {
@@ -36,7 +38,11 @@ public class TrainerRole {
     }
 
     public List<Member> getListOfMembers() {
-        return (List<Member>)(List<?>)memberDatabase.returnAllRecords();
+        List<Record> records = memberDatabase.returnAllRecords();
+        List<Member> trainers = new ArrayList<>();
+        for(Record record : records)
+            trainers.add((Member)record);
+        return trainers;
     }
 
     public void addClass(String classID, String className, String trainerID, int duration, int maxParticipants) {
@@ -49,7 +55,11 @@ public class TrainerRole {
     }
 
     public List<Class> getListOfClasses() {
-        return (List<Class>)(List<?>)classDatabase.returnAllRecords();
+        List<Record> records = classDatabase.returnAllRecords();
+        List<Class> classes = new ArrayList<>();
+        for(Record record : records)
+            classes.add((Class)record);
+        return classes;
     }
 
     public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
@@ -95,7 +105,11 @@ public class TrainerRole {
     }
 
     public List<MemberClassRegistration> getListOfRegistrations() {
-        return (List<MemberClassRegistration>)(List<?>)registrationDatabase.returnAllRecords();
+        List<Record> records = registrationDatabase.returnAllRecords();
+        List<MemberClassRegistration> registerations = new ArrayList<>();
+        for(Record record : records)
+            registerations.add((MemberClassRegistration)record);
+        return registerations;
     }
 
     public void logout() {
