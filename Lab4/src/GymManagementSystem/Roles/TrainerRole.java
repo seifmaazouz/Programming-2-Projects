@@ -7,7 +7,6 @@ import GymManagementSystem.Databases.MemberClassRegistrationDatabase;
 import GymManagementSystem.Records.Member;
 import GymManagementSystem.Databases.MemberDatabase;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class TrainerRole {
