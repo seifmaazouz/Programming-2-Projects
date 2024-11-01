@@ -28,6 +28,10 @@ public class MemberClassRegistration implements Record {
         return registrationDate;
     }
 
+    public String getRegistrationStatus() {
+        return status;
+    }
+    
     public void setRegistrationStatus(String status) {
         this.status = status;
     }

@@ -8,6 +8,7 @@ import GymManagementSystem.Databases.MemberClassRegistrationDatabase;
 import GymManagementSystem.Records.Member;
 import GymManagementSystem.Databases.MemberDatabase;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,17 +66,21 @@ public class TrainerRole {
     public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
         Class Class = (Class)classDatabase.getRecord(classID);
         if (Class != null) {
-            if (!memberDatabase.contains(memberID) || registrationDatabase.contains(memberID + classID)) {
-                return false;
-            }
-            int availableSeats = Class.getAvailableSeats();
-            if (availableSeats > 0) {
-                MemberClassRegistration record = new MemberClassRegistration(memberID, classID, registrationDate, "active");
-                registrationDatabase.insertRecord(record);
-                Class.setAvailableSeats(availableSeats - 1);
-                return true;
-            } else {
-                System.out.println("No available seats.");
+            MemberClassRegistration registration = (MemberClassRegistration)registrationDatabase.getRecord(memberID + classID);
+            if (!memberDatabase.contains(memberID))
+                System.out.println("Member does not exist.");
+            else if (registration != null && registration.getRegistrationStatus() == "active")
+                System.out.println("Member is currently already registered to this class. Cannot registor again.");
+            else {
+                int availableSeats = Class.getAvailableSeats();
+                if (availableSeats > 0) {
+                    MemberClassRegistration record = new MemberClassRegistration(memberID, classID, registrationDate, "active");
+                    registrationDatabase.insertRecord(record);
+                    Class.setAvailableSeats(availableSeats - 1);
+                    return true;
+                } else {
+                    System.out.println("No available seats.");
+                }
             }
         } else {
             System.out.println("Class not found.");
@@ -86,18 +91,21 @@ public class TrainerRole {
     public boolean cancelRegistration(String memberID, String classID) {
         MemberClassRegistration registration = (MemberClassRegistration)registrationDatabase.getRecord(memberID + classID);
         if (registration != null) {
+            if(registration.getRegistrationStatus() != "cancelled") {
             LocalDate oldDate = registration.getRegistrationDate();
             LocalDate currentDate = LocalDate.now();
-            if (oldDate.until(currentDate).getDays() > 3) {
+            if (ChronoUnit.DAYS.between(oldDate, currentDate) > 3) {
                 System.out.println("Passed more than 3 days.");
                 return false;
             }
             System.out.println("Refunded.");
-            registration.setRegistrationStatus("canceled");
+            registration.setRegistrationStatus("cancelled");
             Class Class = (Class)classDatabase.getRecord(classID);
             int availableSeats = Class.getAvailableSeats();
             Class.setAvailableSeats(availableSeats + 1);
             return true;
+            } else
+                System.out.println("Registration has already been cancelled before.");
         } else {
             System.out.println("Registration not found.");
         }
