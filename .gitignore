@@ -1,0 +1,5 @@
+Lab5/build/
+Lab5/nbproject/private/
+Lab5/dist/
+Lab5/*.class
+!Lab5/*.java
