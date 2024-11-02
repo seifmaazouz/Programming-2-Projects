@@ -1,3 +1,5 @@
-/Lab4/build/
-*.xml
-!*.java
+Lab4/build/
+Lab4/nbproject/private/
+Lab4/dist/
+Lab4/*.class
+!Lab4/*.java
