@@ -25,6 +25,7 @@ public class MainWindow extends javax.swing.JFrame {
         setTitle("Gym System");
         setMinimumSize(new java.awt.Dimension(400, 300));
         setName("Gym System"); // NOI18N
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);

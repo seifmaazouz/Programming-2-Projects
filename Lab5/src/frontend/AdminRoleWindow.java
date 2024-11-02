@@ -28,6 +28,7 @@ public class AdminRoleWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Admin Role");
         setMinimumSize(new java.awt.Dimension(400, 328));
+        setResizable(false);
 
         ViewTrainers.setBackground(new java.awt.Color(0, 0, 0));
         ViewTrainers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

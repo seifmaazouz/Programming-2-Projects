@@ -8,6 +8,7 @@
       <Dimension value="[400, 300]"/>
     </Property>
     <Property name="name" type="java.lang.String" value="Gym System" noResource="true"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <AccessibilityProperties>
     <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
