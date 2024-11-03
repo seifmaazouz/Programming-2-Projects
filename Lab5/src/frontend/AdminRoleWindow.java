@@ -109,7 +109,8 @@ public class AdminRoleWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ViewTrainersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewTrainersActionPerformed
-        // TODO add your handling code here:
+        new ViewTrainersWindow(this, admin).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_ViewTrainersActionPerformed
 
     private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
@@ -119,7 +120,8 @@ public class AdminRoleWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutActionPerformed
 
     private void RemoveTrainerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveTrainerActionPerformed
-        // TODO add your handling code here:
+        new RemoveTrainerWindow(this, admin).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_RemoveTrainerActionPerformed
 
     private void AddTrainerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTrainerActionPerformed

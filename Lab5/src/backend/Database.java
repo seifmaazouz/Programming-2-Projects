@@ -78,7 +78,7 @@ public abstract class Database {
             System.out.println("Record Successfully deleted.");
         }
         else
-            System.out.println("Record not found.");
+            throw new RuntimeException("The Trainer with Id = " + key + " does not exist!");
     }
     
     public void saveToFile() {

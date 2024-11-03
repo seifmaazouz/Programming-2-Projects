@@ -37,6 +37,7 @@ public class AddTrainerWindow extends javax.swing.JFrame {
         Add = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Add Trainer");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(474, 469));
         setResizable(false);

@@ -23,6 +23,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gym System");
+        setBounds(new java.awt.Rectangle(0, 50, 0, 0));
         setMinimumSize(new java.awt.Dimension(400, 300));
         setName("Gym System"); // NOI18N
         setResizable(false);
