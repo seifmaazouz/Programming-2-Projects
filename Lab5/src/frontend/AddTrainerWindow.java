@@ -241,11 +241,19 @@ public class AddTrainerWindow extends javax.swing.JFrame {
     private void inputPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPhoneNumberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPhoneNumberActionPerformed
-
+    
+    private void resetFields() {
+        inputId.setText("");
+        inputName.setText("");
+        inputEmail.setText("");
+        inputSpeciality.setText("");
+        inputPhoneNumber.setText("");
+    }
+    
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         String trainerId = inputId.getText().strip();
         String name = inputName.getText().strip();
-        String email = inputName.getText().strip();
+        String email = inputEmail.getText().strip();
         String speciality = inputSpeciality.getText().strip();
         String phoneNumber = inputPhoneNumber.getText().strip();
         
@@ -255,9 +263,9 @@ public class AddTrainerWindow extends javax.swing.JFrame {
             try {
                 admin.addTrainer(trainerId, name, email, speciality, phoneNumber);
                 JOptionPane.showMessageDialog(this, "The Trainer with Id = " + trainerId + " has been successfully added");
-                this.dispose();
-            } catch (RuntimeException e) {
-                JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                resetFields();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this,e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_AddActionPerformed

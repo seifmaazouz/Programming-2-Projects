@@ -2,7 +2,6 @@ package backend;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.lang.RuntimeException;
 import constants.FileNames;
 
 public class AdminRole {
@@ -15,11 +14,11 @@ public class AdminRole {
     }
     
     // methods
-    public void addTrainer(String trainerId, String name, String email, String specialty, String phoneNumber) {
+    public void addTrainer(String trainerId, String name, String email, String specialty, String phoneNumber) throws Exception {
         Trainer record = new Trainer(trainerId, name, email, specialty, phoneNumber);
         String key = record.getSearchKey();
         if(database.contains(key))
-            throw new RuntimeException("The Trainer with Id = " + key + " already exists.");
+            throw new Exception("The Trainer with Id = " + key + " already exists.");
         else
             database.insertRecord(record);
     }
@@ -32,8 +31,12 @@ public class AdminRole {
         return trainers;
     }
     
-    public void removeTrainer(String key) {
-        database.deleteRecord(key);
+    public void removeTrainer(String key) throws Exception {
+        try {
+            database.deleteRecord(key);
+        } catch (Exception e) {
+            throw new Exception("The Trainer with " + e.getMessage());
+        }
     }
     
     public void logout() {

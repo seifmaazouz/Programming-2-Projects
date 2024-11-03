@@ -71,14 +71,14 @@ public abstract class Database {
         records.add(record);
     }
     
-    public void deleteRecord(String key) {
+    public void deleteRecord(String key) throws Exception {
         Record record = getRecord(key);
         if(record != null) {
             records.remove(record);
             System.out.println("Record Successfully deleted.");
         }
         else
-            throw new RuntimeException("The Trainer with Id = " + key + " does not exist!");
+            throw new Exception("Id = " + key + " does not exist!");
     }
     
     public void saveToFile() {

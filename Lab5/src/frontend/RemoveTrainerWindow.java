@@ -36,6 +36,7 @@ public class RemoveTrainerWindow extends javax.swing.JFrame {
         Remove = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Remove Trainer");
         setMinimumSize(new java.awt.Dimension(480, 130));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -100,15 +101,17 @@ public class RemoveTrainerWindow extends javax.swing.JFrame {
 
     private void RemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveActionPerformed
         String key = inputTrainerId.getText().strip();
-        if(key.isEmpty()) {
+        if(!key.isEmpty()) {
             try {
                 admin.removeTrainer(key);
                 JOptionPane.showMessageDialog(this, "The Trainer with Id = " + key + " has been deleted");
-                this.dispose();
-            } catch (RuntimeException e) {
+                inputTrainerId.setText("");
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
+        else
+            JOptionPane.showMessageDialog(this,"Please enter a Trainer Id to remove.", "Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_RemoveActionPerformed
 
     private void inputTrainerIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTrainerIdActionPerformed
