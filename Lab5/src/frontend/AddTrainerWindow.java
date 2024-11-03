@@ -242,14 +242,6 @@ public class AddTrainerWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPhoneNumberActionPerformed
     
-    private void resetFields() {
-        inputId.setText("");
-        inputName.setText("");
-        inputEmail.setText("");
-        inputSpeciality.setText("");
-        inputPhoneNumber.setText("");
-    }
-    
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         String trainerId = inputId.getText().strip();
         String name = inputName.getText().strip();
@@ -263,7 +255,7 @@ public class AddTrainerWindow extends javax.swing.JFrame {
             try {
                 admin.addTrainer(trainerId, name, email, speciality, phoneNumber);
                 JOptionPane.showMessageDialog(this, "The Trainer with Id = " + trainerId + " has been successfully added");
-                resetFields();
+                this.dispose();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this,e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }

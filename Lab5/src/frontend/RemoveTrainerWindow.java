@@ -105,7 +105,7 @@ public class RemoveTrainerWindow extends javax.swing.JFrame {
             try {
                 admin.removeTrainer(key);
                 JOptionPane.showMessageDialog(this, "The Trainer with Id = " + key + " has been deleted");
-                inputTrainerId.setText("");
+                this.dispose();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
