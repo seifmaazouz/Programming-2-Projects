@@ -37,7 +37,6 @@ public class MainWindow extends javax.swing.JFrame {
         AdminRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         AdminRole.setForeground(new java.awt.Color(204, 204, 204));
         AdminRole.setText("Admin Role");
-        AdminRole.setToolTipText("");
         AdminRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AdminRoleActionPerformed(evt);

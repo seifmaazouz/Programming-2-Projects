@@ -92,7 +92,7 @@ public class TrainerRole {
             LocalDate oldDate = registration.getRegistrationDate();
             LocalDate currentDate = LocalDate.now();
             if (ChronoUnit.DAYS.between(oldDate, currentDate) > 3) {
-                throw new Exception("Passed more than 3 days.");
+                throw new Exception("Cancellation Failed! Passed more than 3 days.");
             }
             registrationDatabase.deleteRecord(memberID + classID);
             Class Class = (Class) classDatabase.getRecord(classID);

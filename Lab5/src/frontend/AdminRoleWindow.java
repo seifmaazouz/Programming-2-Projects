@@ -34,7 +34,6 @@ public class AdminRoleWindow extends javax.swing.JFrame {
         ViewTrainers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ViewTrainers.setForeground(new java.awt.Color(204, 204, 204));
         ViewTrainers.setText("View Trainers");
-        ViewTrainers.setToolTipText("");
         ViewTrainers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewTrainersActionPerformed(evt);
@@ -45,7 +44,6 @@ public class AdminRoleWindow extends javax.swing.JFrame {
         Logout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Logout.setForeground(new java.awt.Color(204, 204, 204));
         Logout.setText("Logout");
-        Logout.setToolTipText("");
         Logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LogoutActionPerformed(evt);
@@ -56,7 +54,6 @@ public class AdminRoleWindow extends javax.swing.JFrame {
         RemoveTrainer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         RemoveTrainer.setForeground(new java.awt.Color(204, 204, 204));
         RemoveTrainer.setText("Remove Trainer");
-        RemoveTrainer.setToolTipText("");
         RemoveTrainer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RemoveTrainerActionPerformed(evt);
@@ -67,7 +64,6 @@ public class AdminRoleWindow extends javax.swing.JFrame {
         AddTrainer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         AddTrainer.setForeground(new java.awt.Color(204, 204, 204));
         AddTrainer.setText("Add Trainer");
-        AddTrainer.setToolTipText("");
         AddTrainer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddTrainerActionPerformed(evt);

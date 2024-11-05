@@ -38,7 +38,6 @@ public class TrainerRoleWindow extends javax.swing.JFrame {
         ViewMembers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ViewMembers.setForeground(new java.awt.Color(204, 204, 204));
         ViewMembers.setText("View Members");
-        ViewMembers.setToolTipText("");
         ViewMembers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewMembersActionPerformed(evt);
@@ -49,7 +48,6 @@ public class TrainerRoleWindow extends javax.swing.JFrame {
         Logout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Logout.setForeground(new java.awt.Color(204, 204, 204));
         Logout.setText("Logout");
-        Logout.setToolTipText("");
         Logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LogoutActionPerformed(evt);
@@ -60,7 +58,6 @@ public class TrainerRoleWindow extends javax.swing.JFrame {
         ViewClasses.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ViewClasses.setForeground(new java.awt.Color(204, 204, 204));
         ViewClasses.setText("View Classes");
-        ViewClasses.setToolTipText("");
         ViewClasses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewClassesActionPerformed(evt);
@@ -71,7 +68,6 @@ public class TrainerRoleWindow extends javax.swing.JFrame {
         AddMember.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         AddMember.setForeground(new java.awt.Color(204, 204, 204));
         AddMember.setText("Add Member");
-        AddMember.setToolTipText("");
         AddMember.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddMemberActionPerformed(evt);
@@ -82,7 +78,6 @@ public class TrainerRoleWindow extends javax.swing.JFrame {
         AddClass.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         AddClass.setForeground(new java.awt.Color(204, 204, 204));
         AddClass.setText("Add Class");
-        AddClass.setToolTipText("");
         AddClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddClassActionPerformed(evt);
@@ -93,7 +88,6 @@ public class TrainerRoleWindow extends javax.swing.JFrame {
         RegisterMember.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         RegisterMember.setForeground(new java.awt.Color(204, 204, 204));
         RegisterMember.setText("Register Member for Class");
-        RegisterMember.setToolTipText("");
         RegisterMember.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegisterMemberActionPerformed(evt);
@@ -104,7 +98,6 @@ public class TrainerRoleWindow extends javax.swing.JFrame {
         CancelRegistration.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         CancelRegistration.setForeground(new java.awt.Color(204, 204, 204));
         CancelRegistration.setText("Cancel Registration");
-        CancelRegistration.setToolTipText("");
         CancelRegistration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelRegistrationActionPerformed(evt);
@@ -115,7 +108,6 @@ public class TrainerRoleWindow extends javax.swing.JFrame {
         ViewRegistrations.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ViewRegistrations.setForeground(new java.awt.Color(204, 204, 204));
         ViewRegistrations.setText("View Registrations");
-        ViewRegistrations.setToolTipText("");
         ViewRegistrations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewRegistrationsActionPerformed(evt);
