@@ -8,7 +8,7 @@ public class AddClassWindow extends javax.swing.JFrame {
 
     private TrainerRoleWindow prevWindow;
     private TrainerRole trainer;
-    
+
     public AddClassWindow(TrainerRoleWindow prevWindow, TrainerRole trainer) {
         initComponents();
         this.prevWindow = prevWindow;
@@ -241,23 +241,29 @@ public class AddClassWindow extends javax.swing.JFrame {
     private void inputMaxParticipantsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputMaxParticipantsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputMaxParticipantsActionPerformed
-    
+
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         String classID = inputClassId.getText().strip();
         String className = inputClassName.getText().strip();
         String trainerID = inputTrainerId.getText().strip();
         String duration = inputDuration.getText().strip();
         String maxParticipants = inputMaxParticipants.getText().strip();
-        
-        if(classID.equals("") || className.equals("") || trainerID.equals("") || duration.equals("") || maxParticipants.equals(""))
+
+        if (classID.equals("") || className.equals("") || trainerID.equals("") || duration.equals("") || maxParticipants.equals(""))
             JOptionPane.showMessageDialog(this, "Some fields are Empty!", "Error", JOptionPane.ERROR_MESSAGE);
         else {
             try {
-                trainer.addClass(classID, className, trainerID, Integer.parseInt(duration), Integer.parseInt(maxParticipants));
-                JOptionPane.showMessageDialog(this, "The Class with Id = " + classID + " has been successfully added");
-                this.dispose();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this,e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                Integer.parseInt(duration);
+                Integer.parseInt(maxParticipants);
+                try {
+                    trainer.addClass(classID, className, trainerID, Integer.parseInt(duration), Integer.parseInt(maxParticipants));
+                    JOptionPane.showMessageDialog(this, "The Class with Id = " + classID + " has been successfully added");
+                    this.dispose();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "You should enter a valid number in Duration and Max Participants fields", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_AddActionPerformed
@@ -266,8 +272,7 @@ public class AddClassWindow extends javax.swing.JFrame {
         prevWindow.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 
-    
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add;
     private javax.swing.JTextField inputClassId;

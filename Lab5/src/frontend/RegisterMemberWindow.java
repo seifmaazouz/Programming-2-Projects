@@ -42,9 +42,9 @@ public class RegisterMemberWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Register Member");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(473, 297));
+        setMinimumSize(new java.awt.Dimension(500, 297));
         setResizable(false);
-        setSize(new java.awt.Dimension(473, 297));
+        setSize(new java.awt.Dimension(500, 297));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);

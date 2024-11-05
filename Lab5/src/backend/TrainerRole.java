@@ -36,8 +36,9 @@ public class TrainerRole {
     public List<Member> getListOfMembers() {
         List<Record> records = memberDatabase.returnAllRecords();
         List<Member> members = new ArrayList<>();
-        for(Record record : records)
-            members.add((Member)record);
+        for (Record record : records) {
+            members.add((Member) record);
+        }
         return members;
     }
 
@@ -46,6 +47,8 @@ public class TrainerRole {
         String key = record.getSearchKey();
         if (classDatabase.contains(key)) {
             throw new Exception("The Class with Id = " + key + " already exists!");
+        } else if (duration < 0 || maxParticipants < 0) {
+            throw new Exception("Cannot enter a negative number!");
         } else {
             classDatabase.insertRecord(record);
         }
@@ -54,20 +57,21 @@ public class TrainerRole {
     public List<Class> getListOfClasses() {
         List<Record> records = classDatabase.returnAllRecords();
         List<Class> classes = new ArrayList<>();
-        for(Record record : records)
-            classes.add((Class)record);
+        for (Record record : records) {
+            classes.add((Class) record);
+        }
         return classes;
     }
 
     public void registerMemberForClass(String memberID, String classID, LocalDate registrationDate) throws Exception {
-        Class Class = (Class)classDatabase.getRecord(classID);
+        Class Class = (Class) classDatabase.getRecord(classID);
         if (Class != null) {
-            MemberClassRegistration registration = (MemberClassRegistration)registrationDatabase.getRecord(memberID + classID);
-            if (!memberDatabase.contains(memberID))
+            MemberClassRegistration registration = (MemberClassRegistration) registrationDatabase.getRecord(memberID + classID);
+            if (!memberDatabase.contains(memberID)) {
                 throw new Exception("Member does not exist.");
-            else if (registration != null)
+            } else if (registration != null) {
                 throw new Exception("Member is already registered to this class.");
-            else {
+            } else {
                 int availableSeats = Class.getAvailableSeats();
                 if (availableSeats > 0) {
                     MemberClassRegistration record = new MemberClassRegistration(memberID, classID, registrationDate, "active");
@@ -83,7 +87,7 @@ public class TrainerRole {
     }
 
     public void cancelRegistration(String memberID, String classID) throws Exception {
-        MemberClassRegistration registration = (MemberClassRegistration)registrationDatabase.getRecord(memberID + classID);
+        MemberClassRegistration registration = (MemberClassRegistration) registrationDatabase.getRecord(memberID + classID);
         if (registration != null) {
             LocalDate oldDate = registration.getRegistrationDate();
             LocalDate currentDate = LocalDate.now();
@@ -91,9 +95,9 @@ public class TrainerRole {
                 throw new Exception("Passed more than 3 days.");
             }
             registrationDatabase.deleteRecord(memberID + classID);
-            Class Class = (Class)classDatabase.getRecord(classID);
+            Class Class = (Class) classDatabase.getRecord(classID);
             int availableSeats = Class.getAvailableSeats();
-            Class.setAvailableSeats(availableSeats + 1);  
+            Class.setAvailableSeats(availableSeats + 1);
         } else {
             throw new Exception("Registration not found.");
         }
@@ -102,8 +106,9 @@ public class TrainerRole {
     public List<MemberClassRegistration> getListOfRegistrations() {
         List<Record> records = registrationDatabase.returnAllRecords();
         List<MemberClassRegistration> registerations = new ArrayList<>();
-        for(Record record : records)
-            registerations.add((MemberClassRegistration)record);
+        for (Record record : records) {
+            registerations.add((MemberClassRegistration) record);
+        }
         return registerations;
     }
 

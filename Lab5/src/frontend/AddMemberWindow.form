@@ -8,11 +8,11 @@
       <Color id="Default Cursor"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[474, 469]"/>
+      <Dimension value="[473, 535]"/>
     </Property>
     <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[474, 469]"/>
+      <Dimension value="[473, 535]"/>
     </Property>
   </Properties>
   <SyntheticProperties>

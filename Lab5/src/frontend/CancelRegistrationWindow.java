@@ -39,7 +39,7 @@ public class CancelRegistrationWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cancel Registration");
-        setMinimumSize(new java.awt.Dimension(480, 130));
+        setMinimumSize(new java.awt.Dimension(455, 178));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {

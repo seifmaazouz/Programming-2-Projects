@@ -41,9 +41,9 @@ public class AddMemberWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Member");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(474, 469));
+        setMinimumSize(new java.awt.Dimension(473, 535));
         setResizable(false);
-        setSize(new java.awt.Dimension(474, 469));
+        setSize(new java.awt.Dimension(473, 535));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
