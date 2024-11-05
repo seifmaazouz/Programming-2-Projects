@@ -27,10 +27,6 @@ public class MemberClassRegistration implements Record {
     public LocalDate getRegistrationDate() {
         return registrationDate;
     }
-
-    public String getRegistrationStatus() {
-        return status;
-    }
     
     public void setRegistrationStatus(String status) {
         this.status = status;

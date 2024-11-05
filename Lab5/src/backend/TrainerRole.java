@@ -23,10 +23,11 @@ public class TrainerRole {
     }
 
     //methods
-    public void addMember(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
+    public void addMember(String memberID, String name, String membershipType, String email, String phoneNumber, String status) throws Exception {
         Member record = new Member(memberID, name, membershipType, email, phoneNumber, status);
-        if (memberDatabase.contains(record.getSearchKey())) {
-            System.out.println("Member already exists.");
+        String key = record.getSearchKey();
+        if (memberDatabase.contains(key)) {
+            throw new Exception("The Member with Id = " + key + " already exists!");
         } else {
             memberDatabase.insertRecord(record);
         }
@@ -40,10 +41,11 @@ public class TrainerRole {
         return members;
     }
 
-    public void addClass(String classID, String className, String trainerID, int duration, int maxParticipants) {
+    public void addClass(String classID, String className, String trainerID, int duration, int maxParticipants) throws Exception {
         Class record = new Class(classID, className, trainerID, duration, maxParticipants);
-        if (classDatabase.contains(record.getSearchKey())) {
-            System.out.println("Class already exists.");
+        String key = record.getSearchKey();
+        if (classDatabase.contains(key)) {
+            throw new Exception("The Class with Id = " + key + " already exists!");
         } else {
             classDatabase.insertRecord(record);
         }
@@ -57,53 +59,44 @@ public class TrainerRole {
         return classes;
     }
 
-    public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
+    public void registerMemberForClass(String memberID, String classID, LocalDate registrationDate) throws Exception {
         Class Class = (Class)classDatabase.getRecord(classID);
         if (Class != null) {
             MemberClassRegistration registration = (MemberClassRegistration)registrationDatabase.getRecord(memberID + classID);
             if (!memberDatabase.contains(memberID))
-                System.out.println("Member does not exist.");
-            else if (registration != null && registration.getRegistrationStatus() == "active")
-                System.out.println("Member is currently already registered to this class. Cannot registor again.");
+                throw new Exception("Member does not exist.");
+            else if (registration != null)
+                throw new Exception("Member is already registered to this class.");
             else {
                 int availableSeats = Class.getAvailableSeats();
                 if (availableSeats > 0) {
                     MemberClassRegistration record = new MemberClassRegistration(memberID, classID, registrationDate, "active");
                     registrationDatabase.insertRecord(record);
                     Class.setAvailableSeats(availableSeats - 1);
-                    return true;
                 } else {
-                    System.out.println("No available seats.");
+                    throw new Exception("The Class has no available seats");
                 }
             }
         } else {
-            System.out.println("Class not found.");
+            throw new Exception("The Class was not found");
         }
-        return false;
     }
 
-    public boolean cancelRegistration(String memberID, String classID) {
+    public void cancelRegistration(String memberID, String classID) throws Exception {
         MemberClassRegistration registration = (MemberClassRegistration)registrationDatabase.getRecord(memberID + classID);
         if (registration != null) {
-            if(registration.getRegistrationStatus() != "cancelled") {
             LocalDate oldDate = registration.getRegistrationDate();
             LocalDate currentDate = LocalDate.now();
             if (ChronoUnit.DAYS.between(oldDate, currentDate) > 3) {
-                System.out.println("Passed more than 3 days.");
-                return false;
+                throw new Exception("Passed more than 3 days.");
             }
-            System.out.println("Refunded.");
-            registration.setRegistrationStatus("cancelled");
+            registrationDatabase.deleteRecord(memberID + classID);
             Class Class = (Class)classDatabase.getRecord(classID);
             int availableSeats = Class.getAvailableSeats();
-            Class.setAvailableSeats(availableSeats + 1);
-            return true;
-            } else
-                System.out.println("Registration has already been cancelled before.");
+            Class.setAvailableSeats(availableSeats + 1);  
         } else {
-            System.out.println("Registration not found.");
+            throw new Exception("Registration not found.");
         }
-        return false;
     }
 
     public List<MemberClassRegistration> getListOfRegistrations() {
