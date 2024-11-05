@@ -2,7 +2,6 @@ package frontend;
 
 import backend.TrainerRole;
 import javax.swing.JOptionPane;
-import java.lang.RuntimeException;
 import java.time.LocalDate;
 
 public class RegisterMemberWindow extends javax.swing.JFrame {
